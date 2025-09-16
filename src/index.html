@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dynamic Kanban Board</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="board-wrap">
+    <h1>Dynamic Kanban Board</h1>
+    <p>Create tasks, drag between columns. Data persists using <code>localStorage</code>.</p>
+
+    <form id="taskForm" class="task-form" aria-label="Create task">
+      <input id="title" placeholder="Task title" required />
+      <textarea id="desc" placeholder="Task description (optional)"></textarea>
+      <button type="submit">Add</button>
+    </form>
+
+    <div class="columns" id="board">
+      <section class="column" data-status="todo">
+        <h2>To Do <span class="count" data-count-for="todo">0</span></h2>
+        <div class="task-list" data-list-for="todo" aria-live="polite"></div>
+      </section>
+
+      <section class="column" data-status="inprogress">
+        <h2>In Progress <span class="count" data-count-for="inprogress">0</span></h2>
+        <div class="task-list" data-list-for="inprogress" aria-live="polite"></div>
+      </section>
+
+      <section class="column" data-status="done">
+        <h2>Done <span class="count" data-count-for="done">0</span></h2>
+        <div class="task-list" data-list-for="done" aria-live="polite"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/dragdrop.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

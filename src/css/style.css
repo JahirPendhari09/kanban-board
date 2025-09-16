@@ -1,0 +1,130 @@
+:root {
+  --bg: #f5f7fa;
+  --card: #fff;
+  --muted: #7a7f86;
+  --accent: #2b7cff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+}
+
+body {
+  background: var(--bg);
+  padding: 20px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.board-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.task-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.task-form input,
+.task-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e1e6ef;
+  background: #fff;
+}
+
+.task-form textarea {
+  resize: vertical;
+  min-height: 42px;
+}
+
+.task-form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.column {
+  background: linear-gradient(180deg, #f8fbff, #f6f8fb);
+  padding: 12px;
+  border-radius: 10px;
+  min-height: 300px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.column h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.count {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card {
+  background: var(--card);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(18, 28, 45, 0.04);
+  cursor: grab;
+}
+
+.card[draggable="true"] {
+  user-select: none;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.column.drag-over {
+  outline: 3px dashed rgba(43, 124, 255, 0.12);
+  outline-offset: 6px;
+}
+
+@media (max-width: 800px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card:focus {
+  outline: 2px solid rgba(43, 124, 255, 0.2);
+}
